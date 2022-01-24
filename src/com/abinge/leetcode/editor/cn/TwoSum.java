@@ -65,6 +65,7 @@ public class TwoSum {
                 diff.put(nums[i], i);
             }
             return null;
+
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
