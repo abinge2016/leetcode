@@ -1,0 +1,85 @@
+
+1. 划分-数组整体：划分为左右子数组
+	mergeSort 划分 traceId:94021, left:0, right:5
+	mergeSort 划分 traceId:94021, left:0, right:5, mid:2, 左子数组:(0~2), 右子数组:(3~5)
+
+	1.1 左子数组:(0~2)  
+		1.1.1 划分-左子数组:(0~2)
+			mergeSort 划分 traceId:94021__29617, left:0, right:2
+			mergeSort 划分 traceId:94021__29617, left:0, right:2, mid:1, 左子数组:(0~1), 右子数组:(2~2)
+			
+			1.1.1.1 子左子数组:(0~1)
+				1.1.1.1.1 划分-子左子数组:(0~1) 
+					mergeSort 划分 traceId:94021__29617__21799, left:0, right:1
+					mergeSort 划分 traceId:94021__29617__21799, left:0, right:1, mid:0, 左子数组:(0~0), 右子数组:(1~1)
+					mergeSort 划分 traceId:94021__29617__21799__16757, left:0, right:0
+					mergeSort 划分 traceId:94021__29617__21799__22196, left:1, right:1
+
+				1.1.1.1.2 合并-子左子数组:(0~1) 
+					mergeSort 合并 traceId:94021__29617__21799, left:0, right:1, mid:0, 左子数组:(0~0), 右子数组:(1~1)
+					mergeSort 合并 traceId:94021__29617__21799, left:0, right:1, mid:0, tmp index:[0~2), tmp:[14,12], left:(0~0), right:(1~1), leftStart=0, rightStart=1, i = 0, j =1
+					mergeSort 合并 traceId:94021__29617__21799, left:0, right:1, mid:0, tmp index:[0~2), tmp:[14,12], left:(0~0), right:(1~1), leftStart=0, rightStart=1, i = 0, j =1, k = 0, else nums[0] = tmp[1], nums[]:[12,12,15,13,11,16]
+					mergeSort 合并 traceId:94021__29617__21799, left:0, right:1, mid:0, tmp index:[0~2), tmp:[14,12], left:(0~0), right:(1~1), leftStart=0, rightStart=1, i = 0, j =2, k = 1, j=2 > rightEnd=1 || tmp[0] <= tmp[2]: nums[1] = tmp[0], nums[]:[12,14,15,13,11,16]
+
+
+			1.1.1.2 子右子数组:(2~2) 
+				-- 再次划分，此时子右子数组:(2~2)仅有一个值，不会再次划分、合并
+				mergeSort 划分 traceId:94021__29617__15658, left:2, right:2
+
+		1.1.2 合并-左子数组:(0~2)
+			-- 开始对 子左子数组:(0~1)  和 子右子数组:(2~2) 两个左右子数组进行整体合并，此时子左子数组:(0~1)自身已完成了合并排序
+			mergeSort 合并 traceId:94021__29617, left:0, right:2, mid:1, 左子数组:(0~1), 右子数组:(2~2)
+			mergeSort 合并 traceId:94021__29617, left:0, right:2, mid:1, tmp index:[0~3), tmp:[12,14,15], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 0, j =2
+			mergeSort 合并 traceId:94021__29617, left:0, right:2, mid:1, tmp index:[0~3), tmp:[12,14,15], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 0, j =2, k = 0, j=2 > rightEnd=2 || tmp[0] <= tmp[2]: nums[0] = tmp[0], nums[]:[12,14,15,13,11,16]
+			mergeSort 合并 traceId:94021__29617, left:0, right:2, mid:1, tmp index:[0~3), tmp:[12,14,15], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 1, j =2, k = 1, j=2 > rightEnd=2 || tmp[1] <= tmp[2]: nums[1] = tmp[1], nums[]:[12,14,15,13,11,16]
+			mergeSort 合并 traceId:94021__29617, left:0, right:2, mid:1, tmp index:[0~3), tmp:[12,14,15], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 2, j =2, k = 2, i=2 > leftEnd=1: nums[2] = tmp[2], nums[]:[12,14,15,13,11,16]
+
+
+
+	1.2 右子数组:(3~5) 
+		1.2.1 划分-右子数组:(3~5) 
+			mergeSort 划分 traceId:94021__92936, left:3, right:5
+			mergeSort 划分 traceId:94021__92936, left:3, right:5, mid:4, 左子数组:(3~4), 右子数组:(5~5)
+			
+			1.2.1.1 子左子数组:(3~4)
+				1.2.1.1.1 划分-子左子数组:(3~4) 
+					mergeSort 划分 traceId:94021__92936__65608, left:3, right:4
+					mergeSort 划分 traceId:94021__92936__65608, left:3, right:4, mid:3, 左子数组:(3~3), 右子数组:(4~4)
+					mergeSort 划分 traceId:94021__92936__65608__80541, left:3, right:3
+					mergeSort 划分 traceId:94021__92936__65608__70482, left:4, right:4
+
+				1.2.1.1.2 合并-子左子数组:(3~4) 
+					mergeSort 合并 traceId:94021__92936__65608, left:3, right:4, mid:3, 左子数组:(3~3), 右子数组:(4~4)
+					mergeSort 合并 traceId:94021__92936__65608, left:3, right:4, mid:3, tmp index:[3~5), tmp:[13,11], left:(0~0), right:(1~1), leftStart=0, rightStart=1, i = 0, j =1
+					mergeSort 合并 traceId:94021__92936__65608, left:3, right:4, mid:3, tmp index:[3~5), tmp:[13,11], left:(0~0), right:(1~1), leftStart=0, rightStart=1, i = 0, j =1, k = 3, else nums[3] = tmp[1], nums[]:[12,14,15,11,11,16]
+					mergeSort 合并 traceId:94021__92936__65608, left:3, right:4, mid:3, tmp index:[3~5), tmp:[13,11], left:(0~0), right:(1~1), leftStart=0, rightStart=1, i = 0, j =2, k = 4, j=2 > rightEnd=1 || tmp[0] <= tmp[2]: nums[4] = tmp[0], nums[]:[12,14,15,11,13,16]
+
+			1.2.1.2 子右子数组:(5~5) 
+				--右子数组:(3~5) -- 子右子数组:(5~5) 再次划分，此时子右子数组:(5~5)仅有一个值，不会再次划分、合并
+				mergeSort 划分 traceId:94021__92936__59567, left:5, right:5
+			
+		1.2.2 合并：右子数组:(3~5) 
+			-- 开始对 子左子数组:(3~4) 和 子右子数组:(5~5)两个左右子数组进行整体合并，此时子左子数组:(3~4)自身已完成了合并排序
+			mergeSort 合并 traceId:94021__92936, left:3, right:5, mid:4, 左子数组:(3~4), 右子数组:(5~5)
+			mergeSort 合并 traceId:94021__92936, left:3, right:5, mid:4, tmp index:[3~6), tmp:[11,13,16], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 0, j =2
+			mergeSort 合并 traceId:94021__92936, left:3, right:5, mid:4, tmp index:[3~6), tmp:[11,13,16], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 0, j =2, k = 3, j=2 > rightEnd=2 || tmp[0] <= tmp[2]: nums[3] = tmp[0], nums[]:[12,14,15,11,13,16]
+			mergeSort 合并 traceId:94021__92936, left:3, right:5, mid:4, tmp index:[3~6), tmp:[11,13,16], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 1, j =2, k = 4, j=2 > rightEnd=2 || tmp[1] <= tmp[2]: nums[4] = tmp[1], nums[]:[12,14,15,11,13,16]
+			mergeSort 合并 traceId:94021__92936, left:3, right:5, mid:4, tmp index:[3~6), tmp:[11,13,16], left:(0~1), right:(2~2), leftStart=0, rightStart=2, i = 2, j =2, k = 5, i=2 > leftEnd=3: nums[5] = tmp[2], nums[]:[12,14,15,11,13,16]
+
+2. 合并-数组整体
+	-- 开始对 左子数组:(0~2) 和 右子数组:(3~5) 两个左右子数组进行整体合并，此时两个左右子数组自身均已完成了合并排序
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, 左子数组:(0~2), 右子数组:(3~5)
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 0, j =3
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 0, j =3, k = 0, else nums[0] = tmp[3], nums[]:[11,14,15,11,13,16]
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 0, j =4, k = 1, j=4 > rightEnd=5 || tmp[0] <= tmp[4]: nums[1] = tmp[0], nums[]:[11,12,15,11,13,16]
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 1, j =4, k = 2, else nums[2] = tmp[4], nums[]:[11,12,13,11,13,16]
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 1, j =5, k = 3, j=5 > rightEnd=5 || tmp[1] <= tmp[5]: nums[3] = tmp[1], nums[]:[11,12,13,14,13,16]
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 2, j =5, k = 4, j=5 > rightEnd=5 || tmp[2] <= tmp[5]: nums[4] = tmp[2], nums[]:[11,12,13,14,15,16]
+	mergeSort 合并 traceId:94021, left:0, right:5, mid:2, tmp index:[0~6), tmp:[12,14,15,11,13,16], left:(0~2), right:(3~5), leftStart=0, rightStart=3, i = 3, j =5, k = 5, i=3 > leftEnd=0: nums[5] = tmp[5], nums[]:[11,12,13,14,15,16]
+
+3. 最终结果
+	final sort arr：[11,12,13,14,15,16]
+	
+	
+	
+	
