@@ -1,5 +1,7 @@
 package com.abinge.hello.algo.test.binaryTree;
 
+import com.abinge.hello.algo.test.common.TreeNode;
+
 import java.util.*;
 
 public class BinaryTreeBreadthFirstTraversal {

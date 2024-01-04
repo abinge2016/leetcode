@@ -1,11 +1,11 @@
-package com.abinge.hello.algo.test.binaryTree;
+package com.abinge.hello.algo.test.common;
 
 public class TreeNode {
     private int val;
     private TreeNode left;
     private TreeNode right;
 
-    TreeNode(int val) {
+    public TreeNode(int val) {
         this.val = val;
     }
 
@@ -31,5 +31,15 @@ public class TreeNode {
 
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                ", left=" + (null == left ? null: left.getVal()) +
+                ", right=" + (null == right ? null: right.getVal())  +
+                '}';
     }
 }
